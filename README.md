@@ -1,5 +1,36 @@
 # **Actividad Práctica**: Autenticación y Autorización con React y Auth0
 
+- [**Actividad Práctica**: Autenticación y Autorización con React y Auth0](#actividad-práctica-autenticación-y-autorización-con-react-y-auth0)
+  - [**Descripción**:](#descripción)
+  - [**Herramientas y librerías**:](#herramientas-y-librerías)
+  - [**Guía en etapas**:](#guía-en-etapas)
+    - [**Etapa1: Configuración Inicial**:](#etapa1-configuración-inicial)
+      - [1. Configura un nuevo proyecto React](#1-configura-un-nuevo-proyecto-react)
+      - [2. Instala las dependencias necesarias](#2-instala-las-dependencias-necesarias)
+    - [**Etapa 2 - Diseño de la UI**:](#etapa-2---diseño-de-la-ui)
+      - [1. Configuración de Bootstrap](#1-configuración-de-bootstrap)
+      - [2. Crear la navegación](#2-crear-la-navegación)
+      - [3. Páginas](#3-páginas)
+        - [a. Inicio](#a-inicio)
+        - [b. Iniciar sesión y Registro](#b-iniciar-sesión-y-registro)
+        - [c. Perfil de usuario](#c-perfil-de-usuario)
+        - [d. Panel de administrador](#d-panel-de-administrador)
+    - [**Etapa 3: Configuración de Auth0**:](#etapa-3-configuración-de-auth0)
+    - [**Etapa 4: Integración con Auth0**:](#etapa-4-integración-con-auth0)
+      - [1. Configuración del Proveedor de Auth0](#1-configuración-del-proveedor-de-auth0)
+      - [2. Iniciar Sesión y Cerrar Sesión](#2-iniciar-sesión-y-cerrar-sesión)
+      - [3. Mostrar Información del Usuario](#3-mostrar-información-del-usuario)
+    - [**Etapa 5: Rutas Protegidas**:](#etapa-5-rutas-protegidas)
+      - [1. Creación de una ruta protegida (corregido)](#1-creación-de-una-ruta-protegida-corregido)
+      - [2. Utilizar `ProtectedRoute` (corregido)](#2-utilizar-protectedroute-corregido)
+    - [**Etapa 6: Autorización**:](#etapa-6-autorización)
+      - [1. Configurando Roles en Auth0](#1-configurando-roles-en-auth0)
+      - [2. Accediendo a Roles en la Aplicación](#2-accediendo-a-roles-en-la-aplicación)
+      - [3. Creando un Hook para Comprobar el Rol](#3-creando-un-hook-para-comprobar-el-rol)
+      - [4. Usando el Hook en Rutas Protegidas](#4-usando-el-hook-en-rutas-protegidas)
+    - [**Etapa 7: Pruebas**:](#etapa-7-pruebas)
+
+
 ## **Descripción**:
 
 El objetivo de esta actividad es implementar un sistema de autenticación y autorización en una aplicación React utilizando Auth0. Los usuarios deberán poder registrarse, iniciar sesión, acceder a sus perfiles y, si tienen el rol adecuado, acceder a un panel de administrador.
@@ -14,7 +45,7 @@ El objetivo de esta actividad es implementar un sistema de autenticación y auto
 
 ## **Guía en etapas**:
 
-### **Configuración Inicial**:
+### **Etapa1: Configuración Inicial**:
    
    - Configura un nuevo proyecto React.
    - Instala las dependencias necesarias: `react-router-dom`, `react-hook-form`, `bootstrap`, `react-bootstrap`, y `@auth0/auth0-react`.
@@ -96,13 +127,11 @@ export default NavigationBar;
 
 #### 3. Páginas
 
-#### a. Inicio
+##### a. Inicio
 
 Crea una página de bienvenida que describa tu aplicación.
 
 La página de inicio generalmente sirve como una introducción a tu aplicación. A continuación, se presenta un diseño básico para la página de inicio utilizando `react-bootstrap`.
-
-#### Código:
 
 ```javascript
 import React from 'react';
@@ -125,7 +154,7 @@ const HomePage = () => (
 export default HomePage;
 ```
 
-#### b. Iniciar sesión y Registro
+##### b. Iniciar sesión y Registro
 
 Diseña una página inicial que redirija al usuario a la interfaz de Auth0 al hacer clic en un botón de "Iniciar sesión" o "Registrarse".
 
@@ -157,7 +186,7 @@ const LoginPage = () => {
 export default LoginPage;
 ```
 
-#### c. Perfil de usuario
+##### c. Perfil de usuario
 
 Diseña una página que mostrará la información del usuario una vez autenticado, como nombre, imagen y correo electrónico.
 
@@ -194,7 +223,7 @@ const UserProfile = () => {
 export default UserProfile;
 ```
 
-#### d. Panel de administrador
+##### d. Panel de administrador
 
 Diseña una página protegida que solo los usuarios con el rol de "administrador" puedan acceder.
 
@@ -222,13 +251,13 @@ const AdminPanel = () => {
 export default AdminPanel;
 ```
 
-### **Configuración de Auth0**:
+### **Etapa 3: Configuración de Auth0**:
 
    - Crea una cuenta en Auth0 si aún no tienes una.
    - Configura una nueva aplicación en el dashboard de Auth0.
    - Toma nota de tu `Domain` y `Client ID`, los necesitarás para la configuración en React.
   
-### **Integración con Auth0**:
+### **Etapa 4: Integración con Auth0**:
 
    - Configura el proveedor de Auth0 en tu aplicación.
    - Implementa las funcionalidades de inicio de sesión y cierre de sesión.
@@ -311,7 +340,7 @@ const UserProfile = () => {
 Con estos componentes y configuraciones, tu aplicación React ahora está integrada con Auth0, permitiendo a los usuarios iniciar y cerrar sesión y acceder a su perfil de usuario.
 
 
-### **Rutas Protegidas**:
+### **Etapa 5: Rutas Protegidas**:
 
    - Utiliza `react-router-dom` para crear las rutas de tu aplicación.
    - Implementa rutas protegidas que requieran autenticación para acceder al perfil de usuario y al panel de administrador.
@@ -375,7 +404,7 @@ const AppRoutes = () => {
 export default AppRoutes;
 ```
 
-### **Autorización**:
+### **Etapa 6: Autorización**:
 
    - Configura roles en Auth0 (por ejemplo, un rol de "admin").
    - Asegúrate de que solo los usuarios con el rol adecuado puedan acceder al panel de administrador.
@@ -436,7 +465,7 @@ export default AdminProtectedRoute;
 
 Ahora, `AdminProtectedRoute` es una ruta protegida que sólo permite el acceso si el usuario está autenticado y tiene el rol de 'admin'.
 
-### ** Pruebas**:
+### **Etapa 7: Pruebas**:
 
    - Prueba todas las funcionalidades de tu aplicación: registro, inicio de sesión, acceso al perfil, envío de feedback, y acceso al panel de administrador con el rol adecuado.
    - Reflexiona sobre las ventajas de utilizar un servicio como Auth0 para la autenticación y autorización en aplicaciones web.
