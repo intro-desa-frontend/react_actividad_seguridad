@@ -19,7 +19,7 @@ El objetivo de esta actividad es implementar un sistema de autenticación y auto
    - Configura un nuevo proyecto React.
    - Instala las dependencias necesarias: `react-router-dom`, `react-hook-form`, `bootstrap`, `react-bootstrap`, y `@auth0/auth0-react`.
 
-## 1. Configura un nuevo proyecto React
+#### 1. Configura un nuevo proyecto React
 
 Para iniciar un nuevo proyecto en React, utiliza el paquete `create-react-app`, que es una herramienta que configura automáticamente un nuevo proyecto React sin necesidad de configurar manualmente webpack o babel.
 
@@ -33,7 +33,7 @@ Luego, navega a la carpeta del proyecto:
 cd react_actividad_seguridad
 ```
 
-## 2. Instala las dependencias necesarias
+#### 2. Instala las dependencias necesarias
 
 Para instalar las bibliotecas requeridas, ejecuta el siguiente comando:
 
@@ -52,7 +52,7 @@ Este comando instalará:
 ¡Listo! Ahora tienes un nuevo proyecto React con todas las bibliotecas necesarias para empezar a trabajar en la autenticación y autorización con Auth0.
 
 
-### 2. **Diseño de la UI**:
+### **Etapa 2 - Diseño de la UI**:
 
    - Diseña las siguientes páginas usando `bootstrap` y `react-bootstrap`: 
      - Inicio
@@ -61,15 +61,7 @@ Este comando instalará:
      - Perfil de usuario
      - Panel de administrador
 
-### 3. **Configuración de Auth0**:
-
-   - Crea una cuenta en Auth0 si aún no tienes una.
-   - Configura una nueva aplicación en el dashboard de Auth0.
-   - Toma nota de tu `Domain` y `Client ID`, los necesitarás para la configuración en React.
-
-# Resolución: Etapa 2 - Diseño de la UI
-
-## 1. Configuración de Bootstrap
+#### 1. Configuración de Bootstrap
 
 Asegúrate de que `bootstrap` y `react-bootstrap` estén correctamente instalados e importa el CSS de Bootstrap en tu archivo `src/index.js`:
 
@@ -77,7 +69,7 @@ Asegúrate de que `bootstrap` y `react-bootstrap` estén correctamente instalado
 import 'bootstrap/dist/css/bootstrap.min.css';
 ```
 
-## 2. Crear la navegación
+#### 2. Crear la navegación
 
 Configura una barra de navegación con `react-bootstrap` en un componente `Navbar.js`:
 
@@ -102,18 +94,15 @@ const NavigationBar = () => (
 export default NavigationBar;
 ```
 
-## 3. Páginas
+#### 3. Páginas
 
-### a. Inicio
+#### a. Inicio
 
 Crea una página de bienvenida que describa tu aplicación.
 
-
-# Resolución: Página de Inicio
-
 La página de inicio generalmente sirve como una introducción a tu aplicación. A continuación, se presenta un diseño básico para la página de inicio utilizando `react-bootstrap`.
 
-### Código:
+#### Código:
 
 ```javascript
 import React from 'react';
@@ -136,13 +125,11 @@ const HomePage = () => (
 export default HomePage;
 ```
 
-### b. Iniciar sesión y Registro
+#### b. Iniciar sesión y Registro
 
 Diseña una página inicial que redirija al usuario a la interfaz de Auth0 al hacer clic en un botón de "Iniciar sesión" o "Registrarse".
 
 Esta página actuará como un portal para que los usuarios sean redirigidos a la página de inicio de sesión de Auth0. A continuación, se presenta un diseño básico para la página de inicio de sesión utilizando `react-bootstrap` y el hook de `useAuth0` para gestionar la autenticación.
-
-### Código:
 
 ```javascript
 import React from 'react';
@@ -170,15 +157,12 @@ const LoginPage = () => {
 export default LoginPage;
 ```
 
-### c. Perfil de usuario
+#### c. Perfil de usuario
 
 Diseña una página que mostrará la información del usuario una vez autenticado, como nombre, imagen y correo electrónico.
 
-# Resolución: Página de Perfil de Usuario
-
 La página de perfil permitirá a los usuarios ver detalles de su cuenta una vez que hayan iniciado sesión. Utilizaremos `react-bootstrap` para el diseño y el hook `useAuth0` para obtener detalles del usuario autenticado.
 
-### Código:
 
 ```javascript
 import React from 'react';
@@ -210,17 +194,11 @@ const UserProfile = () => {
 export default UserProfile;
 ```
 
-
-
-### d. Panel de administrador
+#### d. Panel de administrador
 
 Diseña una página protegida que solo los usuarios con el rol de "administrador" puedan acceder.
 
-# Resolución: Página de Panel de Administrador
-
 La página del Panel de Administrador será un área donde los usuarios con el rol de administrador podrán ver y gestionar distintas funcionalidades de la plataforma. Utilizaremos `react-bootstrap` para el diseño.
-
-### Código:
 
 ```javascript
 import React from 'react';
@@ -244,19 +222,21 @@ const AdminPanel = () => {
 export default AdminPanel;
 ```
 
+### **Configuración de Auth0**:
 
+   - Crea una cuenta en Auth0 si aún no tienes una.
+   - Configura una nueva aplicación en el dashboard de Auth0.
+   - Toma nota de tu `Domain` y `Client ID`, los necesitarás para la configuración en React.
+  
 ### **Integración con Auth0**:
 
    - Configura el proveedor de Auth0 en tu aplicación.
    - Implementa las funcionalidades de inicio de sesión y cierre de sesión.
    - Muestra la información del perfil del usuario autenticado.
 
-
-# Resolución: Etapa 4 - Integración con Auth0
-
 La integración con Auth0 permitirá a los usuarios iniciar sesión, registrarse y autenticarse en nuestra aplicación de manera segura. 
 
-## 1. Configuración del Proveedor de Auth0
+#### 1. Configuración del Proveedor de Auth0
 
 Para comenzar, debes envolver tu aplicación con el `Auth0Provider`, que es proporcionado por el SDK de Auth0 para React. Esto normalmente se hace en el archivo principal, como `index.js`.
 
@@ -278,7 +258,7 @@ ReactDOM.render(
 );
 ```
 
-## 2. Iniciar Sesión y Cerrar Sesión
+#### 2. Iniciar Sesión y Cerrar Sesión
 
 En cualquier componente donde quieras ofrecer funcionalidad de inicio o cierre de sesión, puedes utilizar el hook `useAuth0`.
 
@@ -300,7 +280,7 @@ const LogoutButton = () => {
 };
 ```
 
-## 3. Mostrar Información del Usuario
+#### 3. Mostrar Información del Usuario
 
 Para mostrar información del usuario autenticado, como en la página de perfil, puedes usar el hook `useAuth0`.
 
@@ -331,15 +311,12 @@ const UserProfile = () => {
 Con estos componentes y configuraciones, tu aplicación React ahora está integrada con Auth0, permitiendo a los usuarios iniciar y cerrar sesión y acceder a su perfil de usuario.
 
 
-
 ### **Rutas Protegidas**:
 
    - Utiliza `react-router-dom` para crear las rutas de tu aplicación.
    - Implementa rutas protegidas que requieran autenticación para acceder al perfil de usuario y al panel de administrador.
 
-# Corrección: Etapa 5 - Rutas Protegidas con la nueva sintaxis
-
-## 2. Creación de una ruta protegida (corregido)
+#### 1. Creación de una ruta protegida (corregido)
 
 ```javascript
 import React from 'react';
@@ -361,7 +338,7 @@ const ProtectedRoute = ({ children, ...rest }) => {
 export default ProtectedRoute;
 ```
 
-## 3. Utilizar `ProtectedRoute` (corregido)
+#### 2. Utilizar `ProtectedRoute` (corregido)
 
 ```javascript
 import React from 'react';
@@ -398,18 +375,14 @@ const AppRoutes = () => {
 export default AppRoutes;
 ```
 
-
-
 ### **Autorización**:
 
    - Configura roles en Auth0 (por ejemplo, un rol de "admin").
    - Asegúrate de que solo los usuarios con el rol adecuado puedan acceder al panel de administrador.
 
-# Resolución: Etapa 6 - Autorización
-
 La autorización es el proceso mediante el cual se verifica si un usuario autenticado tiene permiso para realizar ciertas acciones o acceder a ciertos recursos. En el contexto de nuestra aplicación, esto podría referirse a permitir que sólo ciertos usuarios accedan al Panel de Administrador.
 
-## 1. Configurando Roles en Auth0
+#### 1. Configurando Roles en Auth0
 
 Antes de integrar la autorización en nuestra aplicación, necesitas configurar roles y permisos en Auth0.
 
@@ -418,11 +391,11 @@ Antes de integrar la autorización en nuestra aplicación, necesitas configurar 
 3. Haz clic en "Create Role", asigna un nombre como "admin" y una descripción.
 4. Una vez creado el rol, puedes asignar permisos específicos a ese rol o asignar el rol a usuarios específicos.
 
-## 2. Accediendo a Roles en la Aplicación
+#### 2. Accediendo a Roles en la Aplicación
 
 Auth0 permite incluir roles en el token de acceso o ID. Puedes configurarlo en las reglas de Auth0 y luego acceder a esa información en tu aplicación.
 
-## 3. Creando un Hook para Comprobar el Rol
+#### 3. Creando un Hook para Comprobar el Rol
 
 ```javascript
 import { useAuth0 } from '@auth0/auth0-react';
@@ -435,7 +408,7 @@ const useIsUserAdmin = () => {
 
 Aquí, estamos creando un hook personalizado que verifica si el usuario autenticado tiene el rol 'admin'. Cambia `YOUR_DOMAIN` por tu dominio específico de Auth0.
 
-## 4. Usando el Hook en Rutas Protegidas
+#### 4. Usando el Hook en Rutas Protegidas
 
 Puedes mejorar el componente `ProtectedRoute` para incluir una verificación de rol.
 
@@ -462,8 +435,6 @@ export default AdminProtectedRoute;
 ```
 
 Ahora, `AdminProtectedRoute` es una ruta protegida que sólo permite el acceso si el usuario está autenticado y tiene el rol de 'admin'.
-
-
 
 ### ** Pruebas**:
 
