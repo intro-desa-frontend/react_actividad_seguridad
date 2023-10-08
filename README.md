@@ -18,7 +18,7 @@
         - [c. Perfil de usuario](#c-perfil-de-usuario)
     - [**Etapa 4: Integración con Auth0**:](#etapa-4-integración-con-auth0)
       - [1. Configuración del Proveedor de Auth0](#1-configuración-del-proveedor-de-auth0)
-    - [**Etapa 6: Pruebas**:](#etapa-6-pruebas)
+    - [**Etapa 5: Pruebas**:](#etapa-5-pruebas)
 
 ## **Descripción**:
 
@@ -315,7 +315,7 @@ root.render(
 Con estos componentes y configuraciones, tu aplicación React ahora está integrada con Auth0, permitiendo a los usuarios iniciar y cerrar sesión y acceder a su perfil de usuario.
 
 
-### **Etapa 6: Pruebas**:
+### **Etapa 5: Pruebas**:
 
    - Prueba todas las funcionalidades de tu aplicación: registro, inicio de sesión y acceso al perfil.
    - Reflexiona sobre las ventajas de utilizar un servicio como Auth0 para la autenticación y autorización en aplicaciones web.
