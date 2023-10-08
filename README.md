@@ -14,7 +14,7 @@
       - [2. Crear la navegación](#2-crear-la-navegación)
       - [3. Páginas](#3-páginas)
         - [a. Inicio](#a-inicio)
-        - [b. Iniciar sesión y Registro](#b-iniciar-sesión-y-registro)
+        - [b. Iniciar sesión](#b-iniciar-sesión)
         - [c. Perfil de usuario](#c-perfil-de-usuario)
     - [**Etapa 4: Integración con Auth0**:](#etapa-4-integración-con-auth0)
       - [1. Configuración del Proveedor de Auth0](#1-configuración-del-proveedor-de-auth0)
@@ -203,7 +203,7 @@ export default HomePage;
 
 ```
 
-##### b. Iniciar sesión y Registro
+##### b. Iniciar sesión 
 
 Diseña una página inicial que redirija al usuario a la interfaz de Auth0 al hacer clic en un botón de "Iniciar sesión".
 
