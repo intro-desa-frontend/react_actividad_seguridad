@@ -19,6 +19,7 @@
     - [**Etapa 4: Integración con Auth0**:](#etapa-4-integración-con-auth0)
       - [1. Configuración del Proveedor de Auth0](#1-configuración-del-proveedor-de-auth0)
     - [**Etapa 5: Pruebas**:](#etapa-5-pruebas)
+    - [**Etapa 6: Entrega**:](#etapa-6-entrega)
 
 ## **Descripción**:
 
@@ -324,3 +325,9 @@ Para hacer pruebas con un usuario pueden usar los siguientes datos:
 usr: ruben@example.com
 pss: desaFrontend2023
 ```
+
+### **Etapa 6: Entrega**:
+
+1. Eliminar la carpeta node_modules
+2. Crear un archivo zip. 
+3. Subir los archivos en la actividad de la UVE.
