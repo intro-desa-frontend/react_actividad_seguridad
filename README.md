@@ -22,7 +22,7 @@
 
 ## **Descripción**:
 
-El objetivo de esta actividad es implementar un sistema de autenticación y autorización en una aplicación React utilizando Auth0. Los usuarios deberán poder registrarse, iniciar sesión, acceder a sus perfiles y, si tienen el rol adecuado, acceder a un panel de administrador.
+El objetivo de esta actividad es implementar un sistema de autenticación y autorización en una aplicación React utilizando Auth0. Los usuarios deberán poder iniciar sesión y acceder a sus perfiles.
 
 ## **Herramientas y librerías**:
 
@@ -75,7 +75,7 @@ Este comando instalará:
 ### **Etapa 2: Rutas Protegidas**:
 
    - Utiliza `react-router-dom` para crear las rutas de tu aplicación.
-   - Implementa rutas protegidas que requieran autenticación para acceder al perfil de usuario y al panel de administrador.
+   - Implementa rutas protegidas que requieran autenticación para acceder al perfil de usuario.
 
 #### 1. Creación de una ruta protegida 
 
@@ -105,10 +105,8 @@ export default ProtectedRoute;
 
    - Diseña las siguientes páginas usando `bootstrap` y `react-bootstrap`: 
      - Inicio
-     - Iniciar sesión
-     - Registro (opcional, ya que Auth0 proporciona una página de inicio de sesión/registro por defecto)
      - Perfil de usuario
-     - Panel de administrador
+     - Iniciar sesión
 
 #### 1. Configuración de Bootstrap
 
