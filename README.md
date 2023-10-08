@@ -16,8 +16,7 @@
         - [a. Inicio](#a-inicio)
         - [b. Iniciar sesión y Registro](#b-iniciar-sesión-y-registro)
         - [c. Perfil de usuario](#c-perfil-de-usuario)
-    - [**Etapa 4: Configuración de Auth0**:](#etapa-4-configuración-de-auth0)
-    - [**Etapa 5: Integración con Auth0**:](#etapa-5-integración-con-auth0)
+    - [**Etapa 4: Integración con Auth0**:](#etapa-4-integración-con-auth0)
       - [1. Configuración del Proveedor de Auth0](#1-configuración-del-proveedor-de-auth0)
     - [**Etapa 6: Pruebas**:](#etapa-6-pruebas)
 
@@ -278,13 +277,8 @@ export default UserProfile;
 
 ```
 
-### **Etapa 4: Configuración de Auth0**:
-
-   - Crea una cuenta en Auth0 si aún no tienes una.
-   - Configura una nueva aplicación en el dashboard de Auth0.
-   - Toma nota de tu `Domain` y `Client ID`, los necesitarás para la configuración en React.
   
-### **Etapa 5: Integración con Auth0**:
+### **Etapa 4: Integración con Auth0**:
 
    - Configura el proveedor de Auth0 en tu aplicación.
    - Implementa las funcionalidades de inicio de sesión y cierre de sesión.
@@ -308,7 +302,9 @@ root.render(
   <Auth0Provider
     domain="dev-utn-frc-iaew.auth0.com"
     clientId="ViijI9UOvRQQJSTRArIT0y2444FFSJ7G"
-    redirectUri="http://localhost:3000/callback"
+    authorizationParams={{
+      redirect_uri: 'http://localhost:3000/callback'
+    }}
   >
     <App />
   </Auth0Provider>
@@ -321,5 +317,12 @@ Con estos componentes y configuraciones, tu aplicación React ahora está integr
 
 ### **Etapa 6: Pruebas**:
 
-   - Prueba todas las funcionalidades de tu aplicación: registro, inicio de sesión, acceso al perfil, envío de feedback, y acceso al panel de administrador con el rol adecuado.
+   - Prueba todas las funcionalidades de tu aplicación: registro, inicio de sesión y acceso al perfil.
    - Reflexiona sobre las ventajas de utilizar un servicio como Auth0 para la autenticación y autorización en aplicaciones web.
+
+Para hacer pruebas con un usuario pueden usar los siguientes datos:
+
+```shell
+usr: ruben@example.com
+pss: desaFrontend2023
+```
