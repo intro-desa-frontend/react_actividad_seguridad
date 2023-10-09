@@ -18,8 +18,9 @@
         - [c. Perfil de usuario](#c-perfil-de-usuario)
     - [**Etapa 4: Integración con Auth0**:](#etapa-4-integración-con-auth0)
       - [1. Configuración del Proveedor de Auth0](#1-configuración-del-proveedor-de-auth0)
-    - [**Etapa 5: Pruebas**:](#etapa-5-pruebas)
-    - [**Etapa 6: Entrega**:](#etapa-6-entrega)
+    - [**Etapa 5: Definimos Rutas**:](#etapa-5-definimos-rutas)
+    - [**Etapa 6: Pruebas**:](#etapa-6-pruebas)
+    - [**Etapa 7: Entrega**:](#etapa-7-entrega)
 
 ## **Descripción**:
 
@@ -314,7 +315,63 @@ root.render(
 Con estos componentes y configuraciones, tu aplicación React ahora está integrada con Auth0, permitiendo a los usuarios iniciar y cerrar sesión y acceder a su perfil de usuario.
 
 
-### **Etapa 5: Pruebas**:
+### **Etapa 5: Definimos Rutas**:
+
+1. Componente `AppRoutes.jsx`
+
+Creamos el componente `AppRoutes.jsx` en la carpeta `src/components` con el siguiente contenido: 
+
+``` jsx
+
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import HomePage from "./HomePage";
+import LoginPage from "./LoginPage";
+import Callback from "./Callback";
+import UserProfile from "./UserProfile";
+import NavigationBar from "./NavigationBar";
+import ProtectedRoute from "./ProtectedRoute";
+
+const AppRoutes = () => {
+  return (
+    <Router>
+      <NavigationBar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/callback" element={<Callback />} />
+        <Route path="/profile" element={<ProtectedRoute />}>
+          <Route index element={<UserProfile />} />
+        </Route>
+      </Routes>
+    </Router>
+  );
+};
+
+export default AppRoutes;
+
+```
+2. Modificarmos App.js
+
+Modificamos el componente principal App con el siguiente contenido:
+
+
+```jsx
+import AppRoutes from './components/AppRoutes';
+
+function App() {
+  return (
+    <div className="App">
+      <AppRoutes/>
+    </div>
+  );
+}
+
+export default App;
+
+```
+
+### **Etapa 6: Pruebas**:
 
    - Prueba todas las funcionalidades de tu aplicación: registro, inicio de sesión y acceso al perfil.
    - Reflexiona sobre las ventajas de utilizar un servicio como Auth0 para la autenticación y autorización en aplicaciones web.
@@ -326,7 +383,7 @@ usr: ruben@example.com
 pss: desaFrontend2023
 ```
 
-### **Etapa 6: Entrega**:
+### **Etapa 7: Entrega**:
 
 1. Eliminar la carpeta node_modules
 2. Crear un archivo zip. 
