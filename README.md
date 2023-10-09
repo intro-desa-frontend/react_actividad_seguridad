@@ -19,8 +19,9 @@
     - [**Etapa 4: Integración con Auth0**:](#etapa-4-integración-con-auth0)
       - [1. Configuración del Proveedor de Auth0](#1-configuración-del-proveedor-de-auth0)
     - [**Etapa 5: Definimos Rutas**:](#etapa-5-definimos-rutas)
-      - [1. Componente `AppRoutes.jsx`](#1-componente-approutesjsx)
-      - [2. Modificarmos App.js](#2-modificarmos-appjs)
+      - [1. Componente `Callback.jsx`](#1-componente-callbackjsx)
+      - [2. Componente `AppRoutes.jsx`](#2-componente-approutesjsx)
+      - [3. Modificarmos App.js](#3-modificarmos-appjs)
     - [**Etapa 6: Pruebas**:](#etapa-6-pruebas)
     - [**Etapa 7: Entrega**:](#etapa-7-entrega)
 
@@ -303,7 +304,7 @@ const root = createRoot(document.getElementById('root'));
 root.render(
   <Auth0Provider
     domain="dev-utn-frc-iaew.auth0.com"
-    clientId="ViijI9UOvRQQJSTRArIT0y2444FFSJ7G"
+    clientId="pTxG72WbxdD2ulX2nCXobCdyWQKN5XWo"
     authorizationParams={{
       redirect_uri: 'http://localhost:3000/callback'
     }}
@@ -319,7 +320,38 @@ Con estos componentes y configuraciones, tu aplicación React ahora está integr
 
 ### **Etapa 5: Definimos Rutas**:
 
-#### 1. Componente `AppRoutes.jsx`
+
+
+#### 1. Componente `Callback.jsx`
+
+El objetivo de este componente es recibir de Auth0 los datos de usuario logueado y guardarlo en un State.
+
+```jsx 
+import React, { useEffect } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
+import { useNavigate } from "react-router-dom";
+
+const Callback = () => {
+  const { handleRedirectCallback } = useAuth0();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const processAuthentication = async () => {
+      await handleRedirectCallback();
+      navigate("/"); // O redirige a '/profile' o cualquier ruta que prefieras.
+    };
+
+    processAuthentication();
+  }, [handleRedirectCallback, navigate]);
+
+  return <div>Loading...</div>; // Muestra un texto o spinner mientras se procesa el callback.
+};
+
+export default Callback;
+
+```
+
+#### 2. Componente `AppRoutes.jsx`
 
 Creamos el componente `AppRoutes.jsx` en la carpeta `src/components` con el siguiente contenido: 
 
@@ -353,7 +385,7 @@ const AppRoutes = () => {
 export default AppRoutes;
 
 ```
-#### 2. Modificarmos App.js
+#### 3. Modificarmos App.js
 
 Modificamos el componente principal App con el siguiente contenido:
 
