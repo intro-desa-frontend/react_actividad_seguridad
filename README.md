@@ -19,6 +19,8 @@
     - [**Etapa 4: Integración con Auth0**:](#etapa-4-integración-con-auth0)
       - [1. Configuración del Proveedor de Auth0](#1-configuración-del-proveedor-de-auth0)
     - [**Etapa 5: Definimos Rutas**:](#etapa-5-definimos-rutas)
+      - [1. Componente `AppRoutes.jsx`](#1-componente-approutesjsx)
+      - [2. Modificarmos App.js](#2-modificarmos-appjs)
     - [**Etapa 6: Pruebas**:](#etapa-6-pruebas)
     - [**Etapa 7: Entrega**:](#etapa-7-entrega)
 
@@ -317,7 +319,7 @@ Con estos componentes y configuraciones, tu aplicación React ahora está integr
 
 ### **Etapa 5: Definimos Rutas**:
 
-1. Componente `AppRoutes.jsx`
+#### 1. Componente `AppRoutes.jsx`
 
 Creamos el componente `AppRoutes.jsx` en la carpeta `src/components` con el siguiente contenido: 
 
@@ -351,7 +353,7 @@ const AppRoutes = () => {
 export default AppRoutes;
 
 ```
-2. Modificarmos App.js
+#### 2. Modificarmos App.js
 
 Modificamos el componente principal App con el siguiente contenido:
 
